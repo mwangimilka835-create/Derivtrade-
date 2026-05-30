@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: sans-serif; background: #121212; color: white; margin: 0; }
+        .tab { display: none; padding: 20px; }
+        .active { display: block; }
+        nav { background: #1e1e1e; padding: 10px; display: flex; justify-content: space-around; }
+        button { padding: 10px; border: none; background: #333; color: white; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <button onclick="showTab('dashboard')">Dashboard</button>
+    <button onclick="showTab('trader')">Trader</button>
+</nav>
+
+<div id="dashboard" class="tab active">
+    <h1>Dashboard</h1>
+    <input type="password" id="token" placeholder="Enter API Token">
+    <button onclick="connect()">Connect</button>
+    <p id="balance">Balance: --</p>
+</div>
+
+<div id="trader" class="tab">
+    <h1>Manual Trader</h1>
+    <button class="btn-rise" onclick="buy('CALL')">BUY RISE</button>
+    <button class="btn-fall" onclick="buy('PUT')">BUY FALL</button>
+</div>
+
+<script>
+    function showTab(id) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+
+    function connect() {
+        alert("Connected!"); // We'll add the API logic here next
+    }
+</script>
+</body>
+      </html>
